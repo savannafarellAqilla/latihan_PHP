@@ -1,25 +1,53 @@
 <?php
-// Contoh grading nilai A - E
+// daftar nilai beberapa orang
+$data = [
+    "Alya"   => 90,
+    "Bima"   => 75,
+    "Citra"  => 55,
+    "Danu"   => 45,
+    "Eka"    => 30
+];
 
-$nilai = 73; // ubah nilai sesuai kebutuhan
-echo "Nilai Anda: $nilai <br>";
+echo "<h2>Contoh IF ELSE</h2>";
 
-if ($nilai >= 85 && $nilai <= 100) {
-    echo "Grade: A <br>";
-    echo "Keterangan: Sangat Baik 👍<br>";
-} elseif ($nilai >= 75 && $nilai < 85) {
-    echo "Grade: B <br>";
-    echo "Keterangan: Baik 👌<br>";
-} elseif ($nilai >= 60 && $nilai < 75) {
-    echo "Grade: C <br>";
-    echo "Keterangan: Cukup 🙂<br>";
-} elseif ($nilai >= 45 && $nilai < 60) {
-    echo "Grade: D <br>";
-    echo "Keterangan: Kurang 😐<br>";
-} elseif ($nilai >= 0 && $nilai < 45) {
-    echo "Grade: E <br>";
-    echo "Keterangan: Gagal ❌<br>";
-} else {
-    echo "Nilai tidak valid! Harus 0 - 100<br>";
+foreach($data as $nama => $nilai){
+    echo $nama . " (Nilai: $nilai) = ";
+    
+    if($nilai >= 0 && $nilai <= 40){
+        echo "Grade: E <br>";
+    }
+    elseif($nilai >= 41 && $nilai <= 50){
+        echo "Grade: D <br>";
+    }
+    elseif($nilai >= 51 && $nilai <= 60){
+        echo "Grade: C <br>";
+    }
+    elseif($nilai >= 61 && $nilai <= 79){
+        echo "Grade: B <br>";
+    }
+    elseif($nilai >= 80 && $nilai <= 100){
+        echo "Grade: A <br>";
+    }
+    else{
+        echo "Nilai tidak valid <br>";
+    }
+}
+
+echo "<h2>Contoh SWITCH</h2>";
+
+// contoh nilai dipilih secara spesifik
+$contohNilai = [100, 90, 80, 75, 60, 40];
+
+foreach($contohNilai as $n){
+    echo "Nilai yang dipilih $n = ";
+    switch(true){
+        case ($n >= 0 && $n <= 40):  echo "Grade E <br>"; break;
+        case ($n >= 41 && $n <= 50): echo "Grade D <br>"; break;
+        case ($n >= 51 && $n <= 60): echo "Grade C <br>"; break;
+        case ($n >= 61 && $n <= 79): echo "Grade B <br>"; break;
+        case ($n >= 80 && $n <= 100):echo "Grade A <br>"; break;
+        default: echo "Nilai tidak valid <br>"; break;
+    }
 }
 ?>
+
